@@ -10,7 +10,6 @@ type RouterFactory = {
   (path: pathToRegexp.Path, fn: Koa.Middleware[]): Router
   (path: pathToRegexp.Path, ...fn: Koa.Middleware[]): Router
 }
-type RouterMethod = (ctx: Koa.Middleware) => Router
 
 type HTTPMethod
   = 'acl'
