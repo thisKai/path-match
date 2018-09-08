@@ -36,5 +36,6 @@
   "files": [
     "lib"
   ],
-  "main": "lib"
+  "main": "lib",
+  "types": "lib/index.d.ts"
 }
