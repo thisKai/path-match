@@ -11,6 +11,10 @@ type RouterFactory = {
   (path: pathToRegexp.Path, ...fn: Koa.Middleware[]): Router
 }
 
+type Router = Koa.Middleware & {
+  [M in HTTPMethod]: (ctx: Koa.Middleware) => Router
+}
+
 type HTTPMethod
   = 'acl'
   | 'bind'
@@ -46,7 +50,3 @@ type HTTPMethod
   | 'unlink'
   | 'unlock'
   | 'unsubscribe'
-
-type Router = Koa.Middleware & {
-  [M in HTTPMethod]: (ctx: Koa.Middleware) => Router
-}
