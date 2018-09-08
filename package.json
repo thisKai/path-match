@@ -10,6 +10,7 @@
     "path-match": "^1.2.3"
   },
   "devDependencies": {
+    "@types/koa": "^2.0.46",
     "babel-eslint": "^8.0.0",
     "codecov": "^3.0.0",
     "eslint": "^3.17.0",
