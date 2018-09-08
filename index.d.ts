@@ -12,39 +12,42 @@ type RouterFactory = {
 }
 type RouterMethod = (ctx: Koa.Middleware) => Router
 
-interface Router extends Koa.Middleware {
-  acl: RouterMethod
-  bind: RouterMethod
-  checkout: RouterMethod
-  connect: RouterMethod
-  copy: RouterMethod
-  delete: RouterMethod
-  get: RouterMethod
-  head: RouterMethod
-  link: RouterMethod
-  lock: RouterMethod
-  'm-search': RouterMethod
-  merge: RouterMethod
-  mkactivity: RouterMethod
-  mkcalendar: RouterMethod
-  mkcol: RouterMethod
-  move: RouterMethod
-  notify: RouterMethod
-  options: RouterMethod
-  patch: RouterMethod
-  post: RouterMethod
-  propfind: RouterMethod
-  proppatch: RouterMethod
-  purge: RouterMethod
-  put: RouterMethod
-  rebind: RouterMethod
-  report: RouterMethod
-  search: RouterMethod
-  source: RouterMethod
-  subscribe: RouterMethod
-  trace: RouterMethod
-  unbind: RouterMethod
-  unlink: RouterMethod
-  unlock: RouterMethod
-  unsubscribe: RouterMethod
+type Method
+  = 'acl'
+  | 'bind'
+  | 'checkout'
+  | 'connect'
+  | 'copy'
+  | 'delete'
+  | 'get'
+  | 'head'
+  | 'link'
+  | 'lock'
+  | 'm-search'
+  | 'merge'
+  | 'mkactivity'
+  | 'mkcalendar'
+  | 'mkcol'
+  | 'move'
+  | 'notify'
+  | 'options'
+  | 'patch'
+  | 'post'
+  | 'propfind'
+  | 'proppatch'
+  | 'purge'
+  | 'put'
+  | 'rebind'
+  | 'report'
+  | 'search'
+  | 'source'
+  | 'subscribe'
+  | 'trace'
+  | 'unbind'
+  | 'unlink'
+  | 'unlock'
+  | 'unsubscribe'
+
+type Router = Koa.Middleware & {
+  [M in Method]: (ctx: Koa.Middleware) => Router
 }
