@@ -12,7 +12,7 @@ type RouterFactory = {
 }
 type RouterMethod = (ctx: Koa.Middleware) => Router
 
-type Method
+type HTTPMethod
   = 'acl'
   | 'bind'
   | 'checkout'
@@ -49,5 +49,5 @@ type Method
   | 'unsubscribe'
 
 type Router = Koa.Middleware & {
-  [M in Method]: (ctx: Koa.Middleware) => Router
+  [M in HTTPMethod]: (ctx: Koa.Middleware) => Router
 }
